@@ -1,10 +1,10 @@
 version:'3.8'
 services:
   web:
-    image: payslip:$BUILD_ID
+    image: tskdochub/payslip:$BUILD_ID
     container_name: payslip
     ports:
-      - 8080:8080
+      - 8090:8080
     restart_always: yes
     networks:
        - front_end
