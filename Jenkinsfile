@@ -4,7 +4,7 @@ pipeline {
     registryCredential = 'tskdochub'
     dockerImage = ''
   }
-  agent any
+  agent Slave-1
   stages {
     stage('Cloning Git') {
       steps {
