@@ -1,6 +1,6 @@
 pipeline {
   environment {
-    registry = "tskdochub/payslip"
+    registry = 'tskdochub/payslip'
     registryCredential = 'tskdochub'
     dockerImage = ''
   }
@@ -22,14 +22,14 @@ pipeline {
       }
     }
     stage('Building image') {
-      steps{
+      steps {
         script {
           dockerImage = docker.build registry + ":$BUILD_NUMBER"
         }
       }
     }
     stage('Deploy Image') {
-      steps{
+      steps {
         script {
           docker.withRegistry( '', registryCredential ) {
             dockerImage.push()
@@ -38,7 +38,7 @@ pipeline {
       }
     }
     stage('Remove Unused docker image') {
-      steps{
+      steps {
         sh "docker rmi $registry:$BUILD_NUMBER"
       }
     }
