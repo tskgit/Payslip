@@ -6,13 +6,16 @@ pipeline {
   }
   agent {
     label 'linux'
-   }
+  }
+  tools {
+    mvn 'Maven-3.6.0'
+  }
   stages {
-    stage('Cloning Git') {
-      steps {
-        git 'https://github.com/tskgit/Payslip.git'
-      }
-     }
+//    stage('Cloning Git') {
+ //     steps {
+   //     git 'https://github.com/tskgit/Payslip.git'
+     // }
+     //}
     stage('Build the Packages') {
       steps {
         sh 'mvn package'
