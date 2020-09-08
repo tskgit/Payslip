@@ -8,7 +8,7 @@ pipeline {
     label 'linux'
   }
   tools {
-    mvn 'Maven-3.6.0'
+    maven 'Maven-3.6.0'
   }
   stages {
 //    stage('Cloning Git') {
